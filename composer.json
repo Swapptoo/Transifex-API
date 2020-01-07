@@ -1,5 +1,5 @@
 {
-    "name": "nautic/transifex",
+    "name": "mautic/transifex",
     "description": "The Transifex API Package is a wrapper of the Transifex API available for PHP developers",
     "keywords": ["php", "transifex"],
     "homepage": "https://github.com/mautic/Transifex-API",
