@@ -8,13 +8,13 @@ The `Transifex` object should be instantiated directly. The class has one requir
 
 #### Required Arguments
 
-- A `BabDev\Transifex\FactoryInterface` implementation
+- A `Mautic\Transifex\FactoryInterface` implementation
 
 #### Example 1: Basic Instantiation
 
 ```php
-use BabDev\Transifex\ApiFactory;
-use BabDev\Transifex\Transifex;
+use Mautic\Transifex\ApiFactory;
+use Mautic\Transifex\Transifex;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -36,8 +36,8 @@ $transifex = new Transifex($apiFactory);
 #### Example 2: Injection of an Options Array
 
 ```php
-use BabDev\Transifex\ApiFactory;
-use BabDev\Transifex\Transifex;
+use Mautic\Transifex\ApiFactory;
+use Mautic\Transifex\Transifex;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -76,15 +76,15 @@ Below is a list of options that are supported in the `Transifex` object and API 
 All API connectors extend the base `ApiConnector` class. API objects are named based on their grouping in the Transifex API documentation. To retrieve an object connecting to the "formats" API endpoints, simply execute this code:
 
 ```php
-/** @var \BabDev\Transifex\Connector\Formats $formats */
+/** @var \Mautic\Transifex\Connector\Formats $formats */
 $formats = $transifex->get('formats');
 ```
 
 The `get()` method requires one parameter, the object name, and this should be a lower-cased string with no spaces. For API endpoints such as "Language info", you would retrieve this API object by calling `$transifex->get('languageinfo')`. A new object is instantiated with each call to the `get()` method.
 
 ```php
-use BabDev\Transifex\ApiFactory;
-use BabDev\Transifex\Transifex;
+use Mautic\Transifex\ApiFactory;
+use Mautic\Transifex\Transifex;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -102,7 +102,7 @@ $uriFactory = // new UriFactoryInterface(); (any PSR-17 URI factory)
 $apiFactory = new ApiFactory($client, $requestFactory, $streamFactory, $uriFactory);
 $transifex = new Transifex($apiFactory);
 
-/** @var \BabDev\Transifex\Connector\Formats $formats */
+/** @var \Mautic\Transifex\Connector\Formats $formats */
 $formats = $transifex->get('formats');
 ```
 
@@ -123,8 +123,8 @@ The `setOption()` method sets an option value to the internal object store. It h
 The following example demonstrates use of the option API methods.
 
 ```php
-use BabDev\Transifex\ApiFactory;
-use BabDev\Transifex\Transifex;
+use Mautic\Transifex\ApiFactory;
+use Mautic\Transifex\Transifex;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;

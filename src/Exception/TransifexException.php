@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Exception;
+namespace Mautic\Transifex\Exception;
 
 /**
  * Base interface for all Transifex package exceptions

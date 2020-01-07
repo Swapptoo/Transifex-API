@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex;
+namespace Mautic\Transifex;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Client;
+namespace Mautic\Transifex\Tests\Client;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;

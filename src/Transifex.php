@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex;
+namespace Mautic\Transifex;
 
 /**
  * Base class for interacting with the Transifex API.

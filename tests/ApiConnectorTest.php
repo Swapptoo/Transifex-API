@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests;
+namespace Mautic\Transifex\Tests;
 
-use BabDev\Transifex\Connector\Formats;
-use BabDev\Transifex\Exception\MissingCredentialsException;
+use Mautic\Transifex\Connector\Formats;
+use Mautic\Transifex\Exception\MissingCredentialsException;
 
 /**
- * Test class for \BabDev\Transifex\ApiConnector.
+ * Test class for \Mautic\Transifex\ApiConnector.
  */
 final class ApiConnectorTest extends ApiConnectorTestCase
 {

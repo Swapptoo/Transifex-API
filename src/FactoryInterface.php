@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex;
+namespace Mautic\Transifex;
 
 /**
  * Interface defining a factory responsible for creating Transifex API objects.

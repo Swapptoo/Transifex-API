@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Translationstrings;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Translationstrings;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Translationstrings.
+ * Test class for \Mautic\Transifex\Connector\Translationstrings.
  */
 final class TranslationstringsTest extends ApiConnectorTestCase
 {
@@ -17,9 +17,9 @@ final class TranslationstringsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getPseudolocalizationStrings('babdev', 'babdev-transifex');
+        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getPseudolocalizationStrings('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/pseudo/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/pseudo/');
 
         $this->assertSame(
             'pseudo_type=MIXED',
@@ -35,9 +35,9 @@ final class TranslationstringsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getPseudolocalizationStrings('babdev', 'babdev-transifex');
+        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getPseudolocalizationStrings('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/pseudo/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/pseudo/', 'GET', 500);
     }
 
     /**
@@ -47,9 +47,9 @@ final class TranslationstringsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('babdev', 'babdev-transifex', 'en_US');
+        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('mautic', 'mautic-transifex', 'en_US');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
     }
 
     /**
@@ -59,9 +59,9 @@ final class TranslationstringsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('babdev', 'babdev-transifex', 'en_US', true);
+        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('mautic', 'mautic-transifex', 'en_US', true);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
 
         $this->assertSame(
             'details',
@@ -78,14 +78,14 @@ final class TranslationstringsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             true,
             ['key' => 'Yes']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
 
         $this->assertSame(
             'details&key=Yes',
@@ -102,14 +102,14 @@ final class TranslationstringsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             true,
             ['key' => 'Yes', 'context' => 'Something']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
 
         $this->assertSame(
             'details&key=Yes&context=Something',
@@ -126,14 +126,14 @@ final class TranslationstringsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             false,
             ['key' => 'Yes', 'context' => 'Something']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
 
         $this->assertSame(
             'key=Yes&context=Something',
@@ -150,14 +150,14 @@ final class TranslationstringsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             false,
             ['context' => 'Something']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/');
 
         $this->assertSame(
             'context=Something',
@@ -173,8 +173,8 @@ final class TranslationstringsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('babdev', 'babdev-transifex', 'en_US');
+        (new Translationstrings($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStrings('mautic', 'mautic-transifex', 'en_US');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US/strings/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US/strings/', 'GET', 500);
     }
 }

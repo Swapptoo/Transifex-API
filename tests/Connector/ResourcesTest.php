@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Resources;
-use BabDev\Transifex\Exception\InvalidConfigurationException;
-use BabDev\Transifex\Exception\InvalidFileTypeException;
-use BabDev\Transifex\Exception\MissingFileException;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Resources;
+use Mautic\Transifex\Exception\InvalidConfigurationException;
+use Mautic\Transifex\Exception\InvalidFileTypeException;
+use Mautic\Transifex\Exception\MissingFileException;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Resources.
+ * Test class for \Mautic\Transifex\Connector\Resources.
  */
 final class ResourcesTest extends ApiConnectorTestCase
 {
@@ -29,14 +29,14 @@ final class ResourcesTest extends ApiConnectorTestCase
         ];
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createResource(
-            'babdev-transifex',
-            'BabDev Transifex Data',
-            'babdev-transifex',
+            'mautic-transifex',
+            'Mautic Transifex Data',
+            'mautic-transifex',
             'INI',
             $options
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/resources/', 'POST', 201);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/resources/', 'POST', 201);
     }
 
     /**
@@ -55,14 +55,14 @@ final class ResourcesTest extends ApiConnectorTestCase
         ];
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createResource(
-            'babdev-transifex',
-            'BabDev Transifex Data',
-            'babdev-transifex',
+            'mautic-transifex',
+            'Mautic Transifex Data',
+            'mautic-transifex',
             'INI',
             $options
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/resources/', 'POST', 201);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/resources/', 'POST', 201);
     }
 
     /**
@@ -81,9 +81,9 @@ final class ResourcesTest extends ApiConnectorTestCase
         ];
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createResource(
-            'babdev-transifex',
-            'BabDev Transifex Data',
-            'babdev-transifex',
+            'mautic-transifex',
+            'Mautic Transifex Data',
+            'mautic-transifex',
             'INI',
             $options
         );
@@ -97,14 +97,14 @@ final class ResourcesTest extends ApiConnectorTestCase
         $this->prepareFailureTest();
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createResource(
-            'babdev-transifex',
-            'BabDev Transifex Data',
-            'babdev-transifex',
+            'mautic-transifex',
+            'Mautic Transifex Data',
+            'mautic-transifex',
             'INI',
             ['content' => 'Test="Test"']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/resources/', 'POST', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/resources/', 'POST', 500);
     }
 
     /**
@@ -114,9 +114,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest(204);
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteResource('babdev', 'babdev-transifex');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteResource('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex', 'DELETE', 204);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex', 'DELETE', 204);
     }
 
     /**
@@ -126,9 +126,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteResource('babdev', 'babdev-transifex');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteResource('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex', 'DELETE', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex', 'DELETE', 500);
     }
 
     /**
@@ -138,9 +138,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResource('babdev', 'babdev-transifex', true);
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResource('mautic', 'mautic-transifex', true);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/');
 
         $this->assertSame(
             'details',
@@ -156,9 +156,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResource('babdev', 'babdev-transifex', true);
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResource('mautic', 'mautic-transifex', true);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/', 'GET', 500);
     }
 
     /**
@@ -168,9 +168,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResourceContent('babdev', 'babdev-transifex');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResourceContent('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/content/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/content/');
     }
 
     /**
@@ -180,9 +180,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResourceContent('babdev', 'babdev-transifex');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResourceContent('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/content/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/content/', 'GET', 500);
     }
 
     /**
@@ -192,9 +192,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResources('babdev');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResources('mautic');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resources');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resources');
     }
 
     /**
@@ -204,9 +204,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResources('babdev');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getResources('mautic');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resources', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resources', 'GET', 500);
     }
 
     /**
@@ -217,13 +217,13 @@ final class ResourcesTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             __DIR__ . '/../stubs/source.ini',
             'file'
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/content/', 'PUT');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/content/', 'PUT');
     }
 
     /**
@@ -234,12 +234,12 @@ final class ResourcesTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'TEST="Test"'
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/content/', 'PUT');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/content/', 'PUT');
     }
 
     /**
@@ -249,9 +249,9 @@ final class ResourcesTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent('babdev', 'babdev-transifex', 'TEST="Test"');
+        (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent('mautic', 'mautic-transifex', 'TEST="Test"');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/content/', 'PUT', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/content/', 'PUT', 500);
     }
 
     /**
@@ -262,8 +262,8 @@ final class ResourcesTest extends ApiConnectorTestCase
         $this->expectException(InvalidFileTypeException::class);
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'TEST="Test"',
             'stuff'
         );
@@ -277,8 +277,8 @@ final class ResourcesTest extends ApiConnectorTestCase
         $this->expectException(MissingFileException::class);
 
         (new Resources($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateResourceContent(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             __DIR__ . '/stubs/does-not-exist.ini',
             'file'
         );

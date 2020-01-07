@@ -1,12 +1,12 @@
-*This is fork of [archived repository](https://github.com/BabDev/Transifex-API) by [Michael Babker](https://github.com/mbabker). Mautic use this library and so we decided to maintain it.*
+*This is fork of [archived repository](https://github.com/mautic/Transifex-API) by [Michael Babker](https://github.com/mbabker). Mautic use this library and so we decided to maintain it.*
 
-Transifex API Package [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BabDev/Transifex-API/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BabDev/Transifex-API/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/BabDev/Transifex-API/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/BabDev/Transifex-API/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/BabDev/Transifex-API/badges/build.png?b=master)](https://scrutinizer-ci.com/g/BabDev/Transifex-API/build-status/master) [![Build Status](https://travis-ci.org/BabDev/Transifex-API.svg?branch=master)](https://travis-ci.org/BabDev/Transifex-API)
+Transifex API Package [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mautic/Transifex-API/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mautic/Transifex-API/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/mautic/Transifex-API/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mautic/Transifex-API/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/mautic/Transifex-API/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mautic/Transifex-API/build-status/master) [![Build Status](https://travis-ci.org/mautic/Transifex-API.svg?branch=master)](https://travis-ci.org/mautic/Transifex-API)
 ===============
 
-[![Latest Stable Version](https://poser.pugx.org/babdev/transifex/v/stable.svg)](https://packagist.org/packages/babdev/transifex)
-[![Total Downloads](https://poser.pugx.org/babdev/transifex/downloads.svg)](https://packagist.org/packages/babdev/transifex)
-[![Latest Unstable Version](https://poser.pugx.org/babdev/transifex/v/unstable.svg)](https://packagist.org/packages/babdev/transifex)
-[![License](https://poser.pugx.org/babdev/transifex/license.svg)](https://packagist.org/packages/babdev/transifex)
+[![Latest Stable Version](https://poser.pugx.org/mautic/transifex/v/stable.svg)](https://packagist.org/packages/mautic/transifex)
+[![Total Downloads](https://poser.pugx.org/mautic/transifex/downloads.svg)](https://packagist.org/packages/mautic/transifex)
+[![Latest Unstable Version](https://poser.pugx.org/mautic/transifex/v/unstable.svg)](https://packagist.org/packages/mautic/transifex)
+[![License](https://poser.pugx.org/mautic/transifex/license.svg)](https://packagist.org/packages/mautic/transifex)
 
 The *Transifex API Package* is a PHP client for accessing the [Transifex API](http://docs.transifex.com/api/).
 
@@ -30,7 +30,7 @@ Installation
 Get the source code from GIT:
 
 ```sh
-git clone git://github.com/BabDev/Transifex-API.git
+git clone git://github.com/mautic/Transifex-API.git
 ```
 
 ## Installation via Composer
@@ -38,5 +38,5 @@ git clone git://github.com/BabDev/Transifex-API.git
 To include this package in your Composer project, run the following command from the command line:
 
 ```sh
-composer require babdev/transifex
+composer require mautic/transifex
 ```

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Languageinfo;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Languageinfo;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Languageinfo.
+ * Test class for \Mautic\Transifex\Connector\Languageinfo.
  */
 final class LanguageinfoTest extends ApiConnectorTestCase
 {

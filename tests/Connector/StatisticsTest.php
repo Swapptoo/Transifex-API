@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Statistics;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Statistics;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Statistics.
+ * Test class for \Mautic\Transifex\Connector\Statistics.
  */
 final class StatisticsTest extends ApiConnectorTestCase
 {
@@ -17,9 +17,9 @@ final class StatisticsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Statistics($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStatistics('babdev', 'babdev-transifex');
+        (new Statistics($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStatistics('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/stats/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/stats/');
     }
 
     /**
@@ -29,8 +29,8 @@ final class StatisticsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Statistics($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStatistics('babdev', 'babdev-transifex');
+        (new Statistics($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getStatistics('mautic', 'mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/stats/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/stats/', 'GET', 500);
     }
 }

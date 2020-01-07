@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests;
+namespace Mautic\Transifex\Tests;
 
-use BabDev\Transifex\ApiConnector;
-use BabDev\Transifex\FactoryInterface;
-use BabDev\Transifex\Transifex;
+use Mautic\Transifex\ApiConnector;
+use Mautic\Transifex\FactoryInterface;
+use Mautic\Transifex\Transifex;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test class for \BabDev\Transifex\Transifex.
+ * Test class for \Mautic\Transifex\Transifex.
  */
 final class TransifexTest extends TestCase
 {

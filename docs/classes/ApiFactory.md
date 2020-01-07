@@ -7,7 +7,7 @@ The `ApiFactory` class is the default [`FactoryInterface`](FactoryInterface.md) 
 To create a `ApiFactory` object, you need to instantiate it with the appropriate dependencies ([PSR-17 factories](https://www.php-fig.org/psr/psr-17/) and a [PSR-18 HTTP client](https://www.php-fig.org/psr/psr-18/)).
 
 ```php
-use BabDev\Transifex\ApiFactory;
+use Mautic\Transifex\ApiFactory;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -26,6 +26,6 @@ $apiFactory = new ApiFactory($client, $requestFactory, $streamFactory, $uriFacto
 The factory is responsible for creating an [`ApiConnector`](ApiConnector.md) instance to communicate with the selected API segment.
 
 ```php
-/** @var \BabDev\Transifex\Connector\Translations $connector */
+/** @var \Mautic\Transifex\Connector\Translations $connector */
 $connector = $apiFactory->createApiConnector('translations');
 ```

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Translations;
-use BabDev\Transifex\Exception\InvalidFileTypeException;
-use BabDev\Transifex\Exception\MissingFileException;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Translations;
+use Mautic\Transifex\Exception\InvalidFileTypeException;
+use Mautic\Transifex\Exception\MissingFileException;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Translations.
+ * Test class for \Mautic\Transifex\Connector\Translations.
  */
 final class TranslationsTest extends ApiConnectorTestCase
 {
@@ -19,9 +19,9 @@ final class TranslationsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getTranslation('babdev', 'babdev-transifex', 'en_US', 'default');
+        (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getTranslation('mautic', 'mautic-transifex', 'en_US', 'default');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US');
 
         $this->assertSame(
             'mode=default&file',
@@ -37,9 +37,9 @@ final class TranslationsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getTranslation('babdev', 'babdev-transifex', 'en_US', 'default');
+        (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getTranslation('mautic', 'mautic-transifex', 'en_US', 'default');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US', 'GET', 500);
     }
 
     /**
@@ -50,14 +50,14 @@ final class TranslationsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateTranslation(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             __DIR__ . '/../stubs/source.ini',
             'file'
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US', 'PUT');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US', 'PUT');
     }
 
     /**
@@ -68,13 +68,13 @@ final class TranslationsTest extends ApiConnectorTestCase
         $this->prepareSuccessTest();
 
         (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateTranslation(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             'TEST="Test"'
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US', 'PUT');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US', 'PUT');
     }
 
     /**
@@ -85,13 +85,13 @@ final class TranslationsTest extends ApiConnectorTestCase
         $this->prepareFailureTest();
 
         (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateTranslation(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             'TEST="Test"'
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev/resource/babdev-transifex/translation/en_US', 'PUT', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic/resource/mautic-transifex/translation/en_US', 'PUT', 500);
     }
 
     /**
@@ -102,8 +102,8 @@ final class TranslationsTest extends ApiConnectorTestCase
         $this->expectException(InvalidFileTypeException::class);
 
         (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateTranslation(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             'TEST="Test"',
             'stuff'
@@ -118,8 +118,8 @@ final class TranslationsTest extends ApiConnectorTestCase
         $this->expectException(MissingFileException::class);
 
         (new Translations($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateTranslation(
-            'babdev',
-            'babdev-transifex',
+            'mautic',
+            'mautic-transifex',
             'en_US',
             __DIR__ . '/stubs/does-not-exist.ini',
             'file'

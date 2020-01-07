@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Projects;
-use BabDev\Transifex\Exception\InvalidConfigurationException;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Projects;
+use Mautic\Transifex\Exception\InvalidConfigurationException;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Projects.
+ * Test class for \Mautic\Transifex\Connector\Projects.
  */
 final class ProjectsTest extends ApiConnectorTestCase
 {
@@ -28,21 +28,21 @@ final class ProjectsTest extends ApiConnectorTestCase
             'private'            => true,
             'homepage'           => 'http://www.example.com',
             'trans_instructions' => 'http://www.example.com/instructions.html',
-            'tags'               => 'joomla, babdev',
+            'tags'               => 'joomla, mautic',
             'maintainers'        => 'joomla',
             'team'               => 'translators',
             'auto_join'          => true,
             'license'            => 'other_open_source',
             'fill_up_resources'  => false,
             'repository_url'     => 'http://www.example.com',
-            'organization'       => 'babdev',
+            'organization'       => 'mautic',
             'archived'           => false,
             'type'               => 1,
         ];
 
         (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createProject(
-            'BabDev Transifex',
-            'babdev-transifex',
+            'Mautic Transifex',
+            'mautic-transifex',
             'Test Project',
             'en_US',
             $options
@@ -59,11 +59,11 @@ final class ProjectsTest extends ApiConnectorTestCase
         $this->prepareFailureTest();
 
         (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createProject(
-            'BabDev Transifex',
-            'babdev-transifex',
+            'Mautic Transifex',
+            'mautic-transifex',
             'Test Project',
             'en_US',
-            ['repository_url' => 'https://www.babdev.com']
+            ['repository_url' => 'https://www.mautic.com']
         );
 
         $this->assertCorrectRequestAndResponse('/api/2/projects/', 'POST', 500);
@@ -77,8 +77,8 @@ final class ProjectsTest extends ApiConnectorTestCase
         $this->expectException(InvalidConfigurationException::class);
 
         (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createProject(
-            'BabDev Transifex',
-            'babdev-transifex',
+            'Mautic Transifex',
+            'mautic-transifex',
             'Test Project',
             'en_US',
             ['license' => 'failure']
@@ -93,8 +93,8 @@ final class ProjectsTest extends ApiConnectorTestCase
         $this->expectException(InvalidConfigurationException::class);
 
         (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->createProject(
-            'BabDev Transifex',
-            'babdev-transifex',
+            'Mautic Transifex',
+            'mautic-transifex',
             'Test Project',
             'en_US'
         );
@@ -107,9 +107,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest(204);
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteProject('babdev-transifex');
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteProject('mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex', 'DELETE', 204);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex', 'DELETE', 204);
     }
 
     /**
@@ -119,9 +119,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteProject('babdev-transifex');
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->deleteProject('mautic-transifex');
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex', 'DELETE', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex', 'DELETE', 500);
     }
 
     /**
@@ -131,9 +131,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getOrganizationProjects('babdev');
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getOrganizationProjects('mautic');
 
-        $this->assertCorrectRequestAndResponse('/organizations/babdev/projects/');
+        $this->assertCorrectRequestAndResponse('/organizations/mautic/projects/');
 
         $this->assertSame(
             'api.transifex.com',
@@ -151,7 +151,7 @@ final class ProjectsTest extends ApiConnectorTestCase
 
         $projects = new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options);
 
-        $projects->getOrganizationProjects('babdev');
+        $projects->getOrganizationProjects('mautic');
 
         $this->assertSame(
             'api.transifex.com',
@@ -177,9 +177,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getOrganizationProjects('babdev');
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getOrganizationProjects('mautic');
 
-        $this->assertCorrectRequestAndResponse('/organizations/babdev/projects/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/organizations/mautic/projects/', 'GET', 500);
 
         $this->assertSame(
             'api.transifex.com',
@@ -204,7 +204,7 @@ final class ProjectsTest extends ApiConnectorTestCase
         $projects = new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options);
 
         try {
-            $projects->getOrganizationProjects('babdev');
+            $projects->getOrganizationProjects('mautic');
 
             $this->fail(\sprintf('A %s should be thrown.', ClientExceptionInterface::class));
         } catch (ClientExceptionInterface $exception) {
@@ -231,9 +231,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareSuccessTest();
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getProject('babdev-transifex', true);
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getProject('mautic-transifex', true);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/');
 
         $this->assertSame(
             'details',
@@ -249,9 +249,9 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->prepareFailureTest();
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getProject('babdev-transifex', true);
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->getProject('mautic-transifex', true);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/', 'GET', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/', 'GET', 500);
     }
 
     /**
@@ -291,21 +291,21 @@ final class ProjectsTest extends ApiConnectorTestCase
             'private'            => true,
             'homepage'           => 'http://www.example.com',
             'trans_instructions' => 'http://www.example.com/instructions.html',
-            'tags'               => 'joomla, babdev',
+            'tags'               => 'joomla, mautic',
             'maintainers'        => 'joomla',
             'team'               => 'translators',
             'auto_join'          => true,
             'license'            => 'other_open_source',
             'fill_up_resources'  => false,
             'repository_url'     => 'http://www.example.com',
-            'organization'       => 'babdev',
+            'organization'       => 'mautic',
             'archived'           => false,
             'type'               => 1,
         ];
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('babdev-transifex', $options);
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('mautic-transifex', $options);
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/', 'PUT');
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/', 'PUT');
     }
 
     /**
@@ -316,11 +316,11 @@ final class ProjectsTest extends ApiConnectorTestCase
         $this->prepareFailureTest();
 
         (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject(
-            'babdev-transifex',
+            'mautic-transifex',
             ['long_description' => 'My test project']
         );
 
-        $this->assertCorrectRequestAndResponse('/api/2/project/babdev-transifex/', 'PUT', 500);
+        $this->assertCorrectRequestAndResponse('/api/2/project/mautic-transifex/', 'PUT', 500);
     }
 
     /**
@@ -330,7 +330,7 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->expectException(\RuntimeException::class);
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('babdev-transifex', []);
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('mautic-transifex', []);
     }
 
     /**
@@ -340,6 +340,6 @@ final class ProjectsTest extends ApiConnectorTestCase
     {
         $this->expectException(InvalidConfigurationException::class);
 
-        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('babdev-transifex', ['license' => 'failure']);
+        (new Projects($this->client, $this->requestFactory, $this->streamFactory, $this->uriFactory, $this->options))->updateProject('mautic-transifex', ['license' => 'failure']);
     }
 }

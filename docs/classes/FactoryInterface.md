@@ -7,6 +7,6 @@ The `FactoryInterface` describes a factory class responsible for creating the AP
 The factory is responsible for creating an [`ApiConnector`](ApiConnector.md) instance to communicate with the selected API segment.
 
 ```php
-/** @var \BabDev\Transifex\ApiConnector $connector */
+/** @var \Mautic\Transifex\ApiConnector $connector */
 $connector = $factory->createApiConnector('translations');
 ```

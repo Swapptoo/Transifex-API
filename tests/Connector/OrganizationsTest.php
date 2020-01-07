@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests\Connector;
+namespace Mautic\Transifex\Tests\Connector;
 
-use BabDev\Transifex\Connector\Organizations;
-use BabDev\Transifex\Tests\ApiConnectorTestCase;
+use Mautic\Transifex\Connector\Organizations;
+use Mautic\Transifex\Tests\ApiConnectorTestCase;
 
 /**
- * Test class for \BabDev\Transifex\Connector\Organizations.
+ * Test class for \Mautic\Transifex\Connector\Organizations.
  */
 final class OrganizationsTest extends ApiConnectorTestCase
 {

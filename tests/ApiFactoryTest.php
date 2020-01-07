@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests;
+namespace Mautic\Transifex\Tests;
 
-use BabDev\Transifex\ApiFactory;
-use BabDev\Transifex\Connector\Formats;
-use BabDev\Transifex\Exception\UnknownApiConnectorException;
+use Mautic\Transifex\ApiFactory;
+use Mautic\Transifex\Connector\Formats;
+use Mautic\Transifex\Exception\UnknownApiConnectorException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
 /**
- * Test class for \BabDev\Transifex\ApiFactory.
+ * Test class for \Mautic\Transifex\ApiFactory.
  */
 final class ApiFactoryTest extends TestCase
 {

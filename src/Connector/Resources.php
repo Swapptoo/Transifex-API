@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Connector;
+namespace Mautic\Transifex\Connector;
 
-use BabDev\Transifex\ApiConnector;
-use BabDev\Transifex\Exception\InvalidFileTypeException;
-use BabDev\Transifex\Exception\MissingFileException;
+use Mautic\Transifex\ApiConnector;
+use Mautic\Transifex\Exception\InvalidFileTypeException;
+use Mautic\Transifex\Exception\MissingFileException;
 use Psr\Http\Message\ResponseInterface;
 
 /**

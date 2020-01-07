@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BabDev\\Transifex\\": "src/"
+            "Mautic\\Transifex\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BabDev\\Transifex\\Tests\\": "tests/"
+            "Mautic\\Transifex\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

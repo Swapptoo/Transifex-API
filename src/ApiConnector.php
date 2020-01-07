@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex;
+namespace Mautic\Transifex;
 
-use BabDev\Transifex\Exception\InvalidFileTypeException;
-use BabDev\Transifex\Exception\MissingCredentialsException;
-use BabDev\Transifex\Exception\MissingFileException;
+use Mautic\Transifex\Exception\InvalidFileTypeException;
+use Mautic\Transifex\Exception\MissingCredentialsException;
+use Mautic\Transifex\Exception\MissingFileException;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;

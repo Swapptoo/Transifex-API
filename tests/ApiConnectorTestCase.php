@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace BabDev\Transifex\Tests;
+namespace Mautic\Transifex\Tests;
 
-use BabDev\Transifex\Tests\Client\TransifexTestClient;
+use Mautic\Transifex\Tests\Client\TransifexTestClient;
 use GuzzleHttp\Psr7\Response;
 use Http\Factory\Guzzle\RequestFactory;
 use Http\Factory\Guzzle\StreamFactory;
