@@ -4,7 +4,6 @@
     "keywords": ["php", "transifex"],
     "homepage": "https://github.com/mautic/Transifex-API",
     "license": "GPL-2.0+",
-    "abandoned": true,
     "authors": [
         {
             "name": "Michael Babker",
