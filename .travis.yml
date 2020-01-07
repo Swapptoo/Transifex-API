@@ -9,7 +9,7 @@ env:
     - PHPUNIT_FLAGS=""
     - USE_SCRUTINIZER="no"
 
-matrix:
+jobs:
   include:
     - php: 7.2
       env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
@@ -21,6 +21,12 @@ matrix:
       env: COMPOSER_FLAGS=""
     - php: 7.4snapshot
     - php: nightly
+    - stage: test
+      name: PHPSTAN
+      script: composer phpstan
+    -
+      name: CS
+      script: composer cs
   allow_failures:
     - php: nightly
 
@@ -35,11 +41,3 @@ script:
   - if [ "$USE_SCRUTINIZER" == "yes" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;
   - if [ "$USE_SCRUTINIZER" == "yes" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi;
 
-jobs:
-  include:
-    - stage: test
-      name: PHPSTAN
-      script: composer phpstan
-    -
-      name: CS
-      script: composer cs
