@@ -10,12 +10,12 @@ use Psr\Http\Message\ResponseInterface;
 final class TransifexTestClient implements ClientInterface
 {
     /**
-     * @var RequestInterface
+     * @var RequestInterface|null
      */
     private $request;
 
     /**
-     * @var ResponseInterface
+     * @var ResponseInterface|null
      */
     private $response;
 

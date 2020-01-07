@@ -22,7 +22,8 @@
         "guzzlehttp/guzzle": "^6.4.1",
         "http-interop/http-factory-guzzle": "^1.0",
         "phpunit/phpunit": "^8.4.3",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/phpstan": "^0.12.4"
     },
     "autoload": {
         "psr-4": {
@@ -36,6 +37,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "phpstan": "vendor/bin/phpstan analyse src tests -l 5",
+        "cs": "vendor/bin/php-cs-fixer fix -v --dry-run --diff",
+        "fixcs": "vendor/bin/php-cs-fixer fix -v"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "3.0-dev"

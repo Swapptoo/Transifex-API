@@ -2,11 +2,11 @@
 
 namespace Mautic\Transifex\Tests;
 
-use Mautic\Transifex\Tests\Client\TransifexTestClient;
 use GuzzleHttp\Psr7\Response;
 use Http\Factory\Guzzle\RequestFactory;
 use Http\Factory\Guzzle\StreamFactory;
 use Http\Factory\Guzzle\UriFactory;
+use Mautic\Transifex\Tests\Client\TransifexTestClient;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
