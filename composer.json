@@ -1,8 +1,8 @@
 {
-    "name": "babdev/transifex",
+    "name": "nautic/transifex",
     "description": "The Transifex API Package is a wrapper of the Transifex API available for PHP developers",
     "keywords": ["php", "transifex"],
-    "homepage": "https://github.com/BabDev/Transifex-API",
+    "homepage": "https://github.com/mautic/Transifex-API",
     "license": "GPL-2.0+",
     "abandoned": true,
     "authors": [
